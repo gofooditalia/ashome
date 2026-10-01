@@ -16,9 +16,6 @@ const f = t(lang).form;
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX'; // ✏️
 
 const today = new Date().toISOString().split('T')[0];
-
-// ✏️ Aggiorna con i nomi reali delle camere
-const rooms = ['Camera 1', 'Camera 2', 'Camera 3'];
 ---
 
 <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
@@ -48,14 +45,6 @@ const rooms = ['Camera 1', 'Camera 2', 'Camera 3'];
         <label class="field-label" for="cf-email">{f.email} <span class="text-rose-400">*</span></label>
         <input id="cf-email" name="email" type="email" required placeholder={f.emailPlaceholder} data-fs-field class="field-input" />
         <span data-fs-error="email" class="err-msg"></span>
-      </div>
-
-      <div class="flex flex-col gap-1 sm:col-span-2">
-        <label class="field-label" for="cf-room">{f.room}</label>
-        <select id="cf-room" name="room" data-fs-field class="field-input">
-          <option value="">{f.roomDefault}</option>
-          {rooms.map((r) => <option value={r}>{r}</option>)}
-        </select>
       </div>
 
       <div class="flex flex-col gap-1">
@@ -96,7 +85,7 @@ const rooms = ['Camera 1', 'Camera 2', 'Camera 3'];
     background: #f8fafc; outline: none; transition: border-color 0.15s, box-shadow 0.15s;
     font-family: inherit;
   }
-  .field-input:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14,165,233,0.12); background: #fff; }
+  .field-input:focus { border-color: #d4af37; box-shadow: 0 0 0 3px rgba(212,175,55,0.15); background: #fff; }
   .field-input[aria-invalid="true"] { border-color: #f43f5e; box-shadow: 0 0 0 3px rgba(244,63,94,0.1); }
   .field-input::placeholder { color: #94a3b8; }
   select.field-input { appearance: auto; }

@@ -8,31 +8,31 @@ export const en: Translations = {
     prices: 'Prices',
   },
   hero: {
-    badge: 'City, Region — Italy', // ✏️
-    title: 'Your home steps from the sea', // ✏️
+    badge: 'Historic Centre, Catania — Sicily',
+    title: 'Private jacuzzi in the heart of Catania',
     subtitle:
-      'Short description of the property and its ideal location.', // ✏️
+      'A holiday apartment with fine marble, gold details and a private whirlpool tub: your relaxation retreat steps from the historic centre.',
     ctaPrimary: 'Book now',
-    ctaSecondary: 'Discover the rooms',
+    ctaSecondary: 'Discover the interiors',
   },
   gallery: {
-    title: 'The Property', // ✏️
-    subtitle: 'Welcoming spaces for your holiday', // ✏️
+    title: 'The Interiors',
+    subtitle: 'Elegant rooms, marble and gold details',
   },
   booking: {
-    title: 'Choose your room',
+    title: 'Your exclusive stay',
     subtitle:
-      'The property has 3 private double rooms. Book on Airbnb or contact us for a discount.', // ✏️
+      'A single private unit with two bedrooms, a fully equipped kitchen and a private whirlpool tub. Book on Airbnb or contact us for a discount.',
     bookOnAirbnb: 'Book on Airbnb',
     comingSoon: 'Coming soon',
     emailCta: 'Send us an email',
   },
   location: {
     title: 'Location',
-    subtitle: 'In the heart of [City], easy to reach', // ✏️
+    subtitle: 'In the heart of Catania, steps from the historic centre',
     description:
-      'Description of the location, nearby services, and how to reach the property.', // ✏️
-    address: 'Via Example, 1 — 00000 City (XX)', // ✏️
+      "A&S Home is located in the San Cristoforo area, a short walk from Catania's historic centre, the Cathedral and Via Etnea. A convenient base to reach the sea, the airport and the city's main attractions.",
+    address: 'Via Juvara, 58 — 95122 Catania (CT)',
     openMap: 'Open in Google Maps',
   },
   prices: {
@@ -40,16 +40,16 @@ export const en: Translations = {
     subtitle: 'Up-to-date rates on Airbnb. Book by email for an exclusive discount.',
     airbnbCard: {
       label: 'Official rates',
-      note: 'Prices vary by season and availability. Check Airbnb for real-time rates.', // ✏️
+      note: 'Prices vary by season and availability. Check Airbnb for real-time rates.',
       cta: 'View prices on Airbnb',
     },
     discountCard: {
       badge: 'Exclusive offer',
       title: 'Book by email, save more',
-      desc: 'If your dates are available and you book by email, we apply a discount vs. Airbnb.', // ✏️
+      desc: 'If your dates are available and you book by email, we apply a discount vs. Airbnb.',
       cta: 'Request the discount',
     },
-    minStay: 'Minimum stay: 2 nights', // ✏️
+    minStay: 'Minimum stay: 2 nights',
   },
   form: {
     name: 'Name',
@@ -69,8 +69,8 @@ export const en: Translations = {
     errorMsg: 'Something went wrong. Please try again or email us directly.',
   },
   footer: {
-    tagline: 'Holiday home — [City]', // ✏️
+    tagline: 'Holiday apartment — Catania',
     contact: 'Contact',
-    rights: '© 2025 [Property Name]. All rights reserved.', // ✏️
+    rights: '© 2026 A&S Home. All rights reserved.',
   },
 };

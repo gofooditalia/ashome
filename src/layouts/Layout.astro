@@ -10,9 +10,9 @@ interface Props {
 
 const { title, description = '', lang } = Astro.props;
 
-// ✏️ Sostituisci con i tuoi URL canonici
-const canonicalIt = 'https://tuodominio.it/';
-const canonicalEn = 'https://tuodominio.it/en/';
+// ✏️ Sostituisci con il dominio definitivo quando confermato dal cliente
+const canonicalIt = 'https://ashome-catania.it/';
+const canonicalEn = 'https://ashome-catania.it/en/';
 
 const isIT = lang === 'it';
 const fb = {
@@ -69,8 +69,8 @@ const fb = {
           { type: 'submit',   value: fb.submit },
         ],
         styles: {
-          title:  { background: '#0c4a6e' },
-          button: { background: '#fbbf24' },
+          title:  { background: '#0a0a0a' },
+          button: { background: '#d4af37' },
         },
       });
     </script>

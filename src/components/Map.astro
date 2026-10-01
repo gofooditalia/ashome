@@ -9,13 +9,10 @@ interface Props {
 const { lang } = Astro.props;
 const tr = t(lang);
 
-// ✏️ Sostituisci con il tuo link Google Maps
-const googleMapsUrl = 'https://maps.app.goo.gl/XXXXXXXX';
+const googleMapsUrl = 'https://maps.app.goo.gl/QwqNj3CjPdz6r9ym8';
 
-// ✏️ Sostituisci con le coordinate reali della struttura
-// Puoi trovarle aprendo Google Maps, clic destro sul punto → "Cosa c'è qui?"
-const LAT = 41.9028;  // ✏️ latitudine
-const LON = 12.4964;  // ✏️ longitudine
+const LAT = 37.4977733;  // Via Juvara, Catania (San Cristoforo / Centro storico)
+const LON = 15.0780571;
 
 // Calcolo automatico del bounding box per OpenStreetMap (non modificare)
 const delta = 0.025;
@@ -23,7 +20,7 @@ const bbox = `${LON - delta}%2C${LAT - delta}%2C${LON + delta}%2C${LAT + delta}`
 const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${LAT}%2C${LON}`;
 ---
 
-<section id="dove-siamo" class="py-20 lg:py-28 bg-sky-50">
+<section id="dove-siamo" class="py-20 lg:py-28 bg-neutral-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
     <div class="text-center mb-14">
@@ -43,9 +40,9 @@ const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
           {tr.location.description}
         </p>
 
-        <div class="flex items-center gap-3 bg-white rounded-xl px-5 py-4 shadow-sm border border-sky-100 mb-6">
-          <div class="w-10 h-10 rounded-full bg-sky-100 flex items-center justify-center flex-shrink-0">
-            <svg class="w-5 h-5 text-sky-600" fill="currentColor" viewBox="0 0 24 24">
+        <div class="flex items-center gap-3 bg-white rounded-xl px-5 py-4 shadow-sm border border-neutral-200 mb-6">
+          <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
             </svg>
           </div>
@@ -55,10 +52,10 @@ const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
         <!-- ✏️ Personalizza questi bullet point con le info reali -->
         <ul class="space-y-3">
           {[
-            lang === 'it' ? '🏖️  Spiaggia a X minuti a piedi' : '🏖️  Beach X minutes on foot',
+            lang === 'it' ? '⛪  Duomo e centro storico a pochi minuti a piedi' : '⛪  Cathedral and historic centre a few minutes on foot',
             lang === 'it' ? '🛒  Servizi e negozi nelle vicinanze' : '🛒  Shops and services nearby',
-            lang === 'it' ? '🚌  Centro città a X minuti' : '🚌  City centre X minutes away',
-            lang === 'it' ? '✈️  Aeroporto a X minuti in auto' : '✈️  Airport X minutes by car',
+            lang === 'it' ? '🌊  Lungomare a X minuti' : '🌊  Seafront X minutes away',
+            lang === 'it' ? '✈️  Aeroporto Fontanarossa a X minuti in auto' : '✈️  Fontanarossa airport X minutes by car',
           ].map((item) => (
             <li class="flex items-center gap-2 text-slate-600">
               <span>{item}</span>
@@ -67,7 +64,7 @@ const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
         </ul>
 
         <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer"
-          class="mt-8 inline-flex items-center gap-2 text-sky-600 hover:text-sky-700 font-semibold transition-colors">
+          class="mt-8 inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-semibold transition-colors">
           <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -75,7 +72,7 @@ const osmUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&lay
         </a>
       </div>
 
-      <div class="rounded-2xl overflow-hidden shadow-xl border border-sky-100">
+      <div class="rounded-2xl overflow-hidden shadow-xl border border-neutral-200">
         <iframe src={osmUrl} width="100%" height="450"
           style="border:0; display:block;" loading="lazy"
           title="Mappa struttura" aria-label="Mappa">

@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://tuodominio.it', // ✏️ Sostituisci con il tuo dominio
+  site: 'https://ashome-catania.it', // ✏️ Sostituisci con il dominio definitivo quando confermato dal cliente
   vite: {
     plugins: [tailwindcss()],
   },

@@ -8,31 +8,31 @@ export const it: Translations = {
     prices: 'Prezzi',
   },
   hero: {
-    badge: 'Città, Regione — Italia', // ✏️
-    title: 'La tua casa a 2 passi dal mare', // ✏️
+    badge: 'Centro Storico, Catania — Sicilia',
+    title: 'Jacuzzi privata nel cuore di Catania',
     subtitle:
-      'Descrizione breve della struttura e della sua posizione ideale.', // ✏️
+      'Appartamento vacanze con marmi pregiati, dettagli dorati e vasca idromassaggio privata: il tuo rifugio di relax a due passi dal centro storico.',
     ctaPrimary: 'Prenota ora',
-    ctaSecondary: 'Scopri le camere',
+    ctaSecondary: 'Scopri gli interni',
   },
   gallery: {
-    title: 'La Struttura', // ✏️
-    subtitle: 'Spazi accoglienti per le tue vacanze', // ✏️
+    title: 'Gli Interni',
+    subtitle: 'Camere eleganti, marmo e dettagli dorati',
   },
   booking: {
-    title: 'Scegli la tua camera',
+    title: 'Il tuo soggiorno esclusivo',
     subtitle:
-      'La struttura dispone di 3 camere doppie private. Prenota su Airbnb o contattaci per uno sconto.', // ✏️
+      "Un'unica unità abitativa con due camere, cucina attrezzata e vasca idromassaggio privata. Prenota su Airbnb o contattaci per uno sconto.",
     bookOnAirbnb: 'Prenota su Airbnb',
-    comingSoon: 'In arrivo',
+    comingSoon: 'Prossimamente',
     emailCta: "Scrivici un'email",
   },
   location: {
     title: 'Dove Siamo',
-    subtitle: 'Nel cuore di [Città], facilmente raggiungibile', // ✏️
+    subtitle: 'Nel cuore di Catania, a due passi dal centro storico',
     description:
-      'Descrizione della posizione, dei servizi nelle vicinanze e di come raggiungere la struttura.', // ✏️
-    address: 'Via Example, 1 — 00000 Città (XX)', // ✏️
+      "A&S Home si trova in zona San Cristoforo, a pochi minuti a piedi dal centro storico di Catania, dal Duomo e da Via Etnea. Posizione comoda per raggiungere il mare, l'aeroporto e i principali punti di interesse della città.",
+    address: 'Via Juvara, 58 — 95122 Catania (CT)',
     openMap: 'Apri in Google Maps',
   },
   prices: {
@@ -40,16 +40,16 @@ export const it: Translations = {
     subtitle: 'Tariffe aggiornate su Airbnb. Prenota via email per uno sconto esclusivo.',
     airbnbCard: {
       label: 'Tariffe ufficiali',
-      note: 'I prezzi variano in base alla stagione e alla disponibilità. Consulta Airbnb per le tariffe aggiornate.', // ✏️
+      note: 'I prezzi variano in base alla stagione e alla disponibilità. Consulta Airbnb per le tariffe aggiornate.',
       cta: 'Vedi i prezzi su Airbnb',
     },
     discountCard: {
       badge: 'Offerta esclusiva',
       title: 'Prenota via email, risparmi di più',
-      desc: 'Se le date sono disponibili e prenoti via email, applichiamo uno sconto rispetto ad Airbnb.', // ✏️
+      desc: 'Se le date sono disponibili e prenoti via email, applichiamo uno sconto rispetto ad Airbnb.',
       cta: 'Richiedi lo sconto',
     },
-    minStay: 'Soggiorno minimo: 2 notti', // ✏️
+    minStay: 'Soggiorno minimo: 2 notti',
   },
   form: {
     name: 'Nome',
@@ -69,8 +69,8 @@ export const it: Translations = {
     errorMsg: 'Si è verificato un errore. Riprova o scrivici direttamente.',
   },
   footer: {
-    tagline: 'Casa vacanze — [Città]', // ✏️
+    tagline: 'Appartamento vacanze — Catania',
     contact: 'Contatti',
-    rights: '© 2025 [Nome Struttura]. Tutti i diritti riservati.', // ✏️
+    rights: '© 2026 A&S Home. Tutti i diritti riservati.',
   },
 };

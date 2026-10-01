@@ -25,8 +25,9 @@ const navLinks = [
     <div class="flex items-center justify-between h-16 lg:h-20">
 
       <!-- Logo -->
-      <a href={homeHref} class="header-logo font-display font-bold text-xl lg:text-2xl transition-colors">
-        Mondello Holiday
+      <a href={homeHref} class="flex items-center gap-2.5">
+        <img src="/images/logo.jpg" alt="A&S Home" class="w-10 h-10 lg:w-11 lg:h-11 rounded-full object-cover shadow-md" />
+        <span class="header-logo font-display font-bold text-lg lg:text-xl transition-colors">A&amp;S home</span>
       </a>
 
       <!-- Desktop nav -->
@@ -73,8 +74,8 @@ const navLinks = [
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   header.scrolled {
-    background-color: white;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    background-color: #0a0a0a;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
   }
 
   .header-logo {
@@ -82,7 +83,7 @@ const navLinks = [
     text-shadow: 0 1px 4px rgba(0,0,0,0.3);
   }
   header.scrolled .header-logo {
-    color: #0284c7;
+    color: #d4af37;
     text-shadow: none;
   }
 
@@ -92,10 +93,10 @@ const navLinks = [
   }
   .header-link:hover { color: #fbbf24; }
   header.scrolled .header-link {
-    color: #475569;
+    color: rgba(255, 255, 255, 0.85);
     text-shadow: none;
   }
-  header.scrolled .header-link:hover { color: #0284c7; }
+  header.scrolled .header-link:hover { color: #fbbf24; }
 
   .header-lang {
     color: rgba(255, 255, 255, 0.85);
@@ -103,15 +104,15 @@ const navLinks = [
   }
   .header-lang:hover { color: #fbbf24; border-color: #fbbf24; }
   header.scrolled .header-lang {
-    color: #475569;
-    border-color: #cbd5e1;
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.3);
   }
-  header.scrolled .header-lang:hover { color: #0284c7; border-color: #0284c7; }
+  header.scrolled .header-lang:hover { color: #fbbf24; border-color: #fbbf24; }
 
   .header-btn {
     color: white;
   }
-  header.scrolled .header-btn { color: #1e293b; }
+  header.scrolled .header-btn { color: white; }
 </style>
 
 <script is:inline>
