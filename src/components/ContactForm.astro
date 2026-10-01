@@ -9,18 +9,16 @@ interface Props {
 const { lang } = Astro.props;
 const f = t(lang).form;
 
-// ✏️ SETUP FORMSPREE (una tantum)
-// 1. Vai su https://formspree.io e registrati
-// 2. Crea un nuovo form
-// 3. Sostituisci l'endpoint qui sotto
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/XXXXXXXX'; // ✏️
-
 const today = new Date().toISOString().split('T')[0];
+
+// Numero WhatsApp di A&S Home, in formato wa.me (solo cifre)
+const whatsappNumber = '393784479853';
 ---
 
 <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-10">
 
-  <div data-fs-success class="text-center py-6">
+  <!-- Stato di successo — mostrato dopo l'apertura del link WhatsApp -->
+  <div data-success class="hidden text-center py-6">
     <div class="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-5">
       <svg class="w-8 h-8 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
@@ -30,44 +28,40 @@ const today = new Date().toISOString().split('T')[0];
     <p class="text-slate-500 text-sm">{f.successMsg}</p>
   </div>
 
-  <div data-fs-error class="mb-5 text-sm text-rose-600 bg-rose-50 border border-rose-100 rounded-lg px-4 py-3"></div>
+  <!-- Errore — mostrato se il link WhatsApp non si apre (es. popup bloccato) -->
+  <div data-error class="hidden mb-5 text-sm text-rose-600 bg-rose-50 border border-rose-100 rounded-lg px-4 py-3">{f.errorMsg}</div>
 
   <form id="contact-form">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
 
       <div class="flex flex-col gap-1">
         <label class="field-label" for="cf-name">{f.name} <span class="text-rose-400">*</span></label>
-        <input id="cf-name" name="name" type="text" required placeholder={f.namePlaceholder} data-fs-field class="field-input" />
-        <span data-fs-error="name" class="err-msg"></span>
+        <input id="cf-name" name="name" type="text" required placeholder={f.namePlaceholder} class="field-input" />
       </div>
 
       <div class="flex flex-col gap-1">
         <label class="field-label" for="cf-email">{f.email} <span class="text-rose-400">*</span></label>
-        <input id="cf-email" name="email" type="email" required placeholder={f.emailPlaceholder} data-fs-field class="field-input" />
-        <span data-fs-error="email" class="err-msg"></span>
+        <input id="cf-email" name="email" type="email" required placeholder={f.emailPlaceholder} class="field-input" />
       </div>
 
       <div class="flex flex-col gap-1">
         <label class="field-label" for="cf-checkin">{f.checkin} <span class="text-rose-400">*</span></label>
-        <input id="cf-checkin" name="checkin" type="date" required min={today} data-fs-field class="field-input" />
-        <span data-fs-error="checkin" class="err-msg"></span>
+        <input id="cf-checkin" name="checkin" type="date" required min={today} class="field-input" />
       </div>
 
       <div class="flex flex-col gap-1">
         <label class="field-label" for="cf-checkout">{f.checkout} <span class="text-rose-400">*</span></label>
-        <input id="cf-checkout" name="checkout" type="date" required min={today} data-fs-field class="field-input" />
-        <span data-fs-error="checkout" class="err-msg"></span>
+        <input id="cf-checkout" name="checkout" type="date" required min={today} class="field-input" />
       </div>
 
       <div class="flex flex-col gap-1 sm:col-span-2">
         <label class="field-label" for="cf-message">{f.message}</label>
-        <textarea id="cf-message" name="message" rows="3" placeholder={f.messagePlaceholder} data-fs-field class="field-input resize-none"></textarea>
-        <span data-fs-error="message" class="err-msg"></span>
+        <textarea id="cf-message" name="message" rows="3" placeholder={f.messagePlaceholder} class="field-input resize-none"></textarea>
       </div>
 
     </div>
 
-    <button type="submit" data-fs-submit-btn
+    <button type="submit"
       class="mt-6 w-full flex items-center justify-center gap-2 bg-amber-400 hover:bg-amber-500 text-slate-900 font-semibold text-base px-8 py-3.5 rounded-full transition-all duration-200 hover:scale-[1.02] shadow-md shadow-amber-400/30 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100">
       <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -92,11 +86,7 @@ const today = new Date().toISOString().split('T')[0];
   .err-msg { font-size: 0.75rem; color: #f43f5e; min-height: 1rem; }
 </style>
 
-<script is:inline>
-  window.formspree = window.formspree || function () {
-    (formspree.q = formspree.q || []).push(arguments);
-  };
-  formspree('initForm', { formElement: '#contact-form', formId: 'XXXXXXXX' }); // ✏️ stesso ID del tuo endpoint
+<script is:inline define:vars={{ whatsappNumber, labels: { name: f.name, email: f.email, checkin: f.checkin, checkout: f.checkout, message: f.message } }}>
   document.addEventListener('DOMContentLoaded', function () {
     var cin = document.getElementById('cf-checkin');
     var cout = document.getElementById('cf-checkout');
@@ -106,6 +96,36 @@ const today = new Date().toISOString().split('T')[0];
         if (cout.value && cout.value <= this.value) cout.value = '';
       });
     }
+
+    var form = document.getElementById('contact-form');
+    var successEl = document.querySelector('[data-success]');
+    var errorEl = document.querySelector('[data-error]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var data = new FormData(form);
+      var lines = [
+        labels.name + ': ' + data.get('name'),
+        labels.email + ': ' + data.get('email'),
+        labels.checkin + ': ' + data.get('checkin'),
+        labels.checkout + ': ' + data.get('checkout'),
+      ];
+      var message = data.get('message');
+      if (message) lines.push(labels.message + ': ' + message);
+
+      var url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(lines.join('\n'));
+      var win = window.open(url, '_blank');
+
+      if (win) {
+        errorEl.classList.add('hidden');
+        form.classList.add('hidden');
+        successEl.classList.remove('hidden');
+      } else {
+        successEl.classList.add('hidden');
+        errorEl.classList.remove('hidden');
+      }
+    });
   });
 </script>
-<script is:inline src="https://unpkg.com/@formspree/ajax@1" defer></script>

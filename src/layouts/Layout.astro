@@ -15,18 +15,9 @@ const canonicalIt = 'https://ashome-catania.it/';
 const canonicalEn = 'https://ashome-catania.it/en/';
 
 const isIT = lang === 'it';
-const fb = {
-  title:         isIT ? 'Prenota o contattaci'                          : 'Book or contact us',
-  description:   isIT ? 'Indica le date per ricevere il prezzo scontato' : 'Include your dates for a discounted rate',
-  nameLabel:     isIT ? 'Nome'        : 'Name',
-  namePh:        isIT ? 'Il tuo nome' : 'Your name',
-  checkinLabel:  isIT ? 'Data arrivo'   : 'Check-in date',
-  checkoutLabel: isIT ? 'Data partenza' : 'Check-out date',
-  datePh:        'gg/mm/aaaa',
-  msgLabel:      isIT ? 'Messaggio'              : 'Message',
-  msgPh:         isIT ? 'Domande o richieste...' : 'Questions or requests...',
-  submit:        isIT ? 'Invia richiesta' : 'Send request',
-};
+const whatsappNumber = '393784479853';
+const whatsappLabel = isIT ? 'Scrivici su WhatsApp' : 'Message us on WhatsApp';
+const whatsappHref = `https://wa.me/${whatsappNumber}`;
 ---
 
 <!doctype html>
@@ -50,30 +41,18 @@ const fb = {
     <slot />
     <script is:inline src="https://cdn.jsdelivr.net/npm/glightbox@3/dist/js/glightbox.min.js"></script>
 
-    <!-- Formspree Formbutton -->
-    <script is:inline define:vars={{ fb }}>
-      window.formbutton = window.formbutton || function () {
-        (formbutton.q = formbutton.q || []).push(arguments);
-      };
-      formbutton('create', {
-        action: 'https://formspree.io/f/XXXXXXXX', // ✏️ Il tuo endpoint Formspree
-        title: fb.title,
-        description: fb.description,
-        loadGoogleFonts: false,
-        fields: [
-          { type: 'text',     name: 'name',     label: fb.nameLabel,     required: true, placeholder: fb.namePh },
-          { type: 'email',    name: 'email',     label: 'Email',          required: true, placeholder: 'email@esempio.com' },
-          { type: 'text',     name: 'checkin',   label: fb.checkinLabel,  placeholder: fb.datePh },
-          { type: 'text',     name: 'checkout',  label: fb.checkoutLabel, placeholder: fb.datePh },
-          { type: 'textarea', name: 'message',   label: fb.msgLabel,      placeholder: fb.msgPh },
-          { type: 'submit',   value: fb.submit },
-        ],
-        styles: {
-          title:  { background: '#0a0a0a' },
-          button: { background: '#d4af37' },
-        },
-      });
-    </script>
-    <script is:inline src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+    <!-- Pulsante WhatsApp flottante -->
+    <a
+      href={whatsappHref}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={whatsappLabel}
+      class="fixed bottom-5 right-5 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 hover:scale-105 transition-transform"
+    >
+      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        <path d="M12.001 2C6.478 2 2 6.477 2 12c0 1.892.526 3.66 1.438 5.168L2 22l4.963-1.409A9.955 9.955 0 0012.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm0 18.2c-1.75 0-3.375-.512-4.75-1.394l-.34-.216-3.03.86.822-3.001-.222-.35A8.181 8.181 0 013.8 12c0-4.529 3.672-8.2 8.2-8.2 4.528 0 8.2 3.671 8.2 8.2 0 4.528-3.672 8.2-8.199 8.2z" />
+      </svg>
+    </a>
   </body>
 </html>
